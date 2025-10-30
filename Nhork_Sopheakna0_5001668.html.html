@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thông Tin Tuyển Sinh</title>
+    <style>
+        body {
+            background-color: #f4f4f4;
+        }
+        header {
+            background-color: #003366;
+            color: white;
+            padding: 15px 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+        }
+        header img {
+            width: 50px;
+            height: 50px;
+        }
+        header h1 {
+            font-size: 22px;
+            margin-bottom: 5px;
+        }
+        header h2 {
+            font-size: 16px;
+            font-weight: normal;
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #003366;
+            padding: 10px 0;
+        }
+        nav a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        /* Main Content */
+        .main {
+            display: flex;
+            justify-content: space-between;
+            padding: 20px;
+        }
+
+        .main .left,
+        .main .right {
+            width: 20%;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+
+        .main .content {
+            width: 55%;
+            text-align: center;
+        }
+
+        .main img {
+            max-width: 100%;
+        }
+
+        /* Right Sidebar */
+        .right {
+            background-color: #f8f9fa;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .right .tabs {
+            display: flex;
+            background-color: #002e5b;
+        }
+
+        .right .tabs button {
+            flex: 1;
+            background-color: #002e5b;
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        .right .tabs button.active {
+            background-color: #004080;
+        }
+
+        .right .content {
+            padding: 10px;
+        }
+
+        .right .content ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .right .content ul li {
+            margin-bottom: 10px;
+        }
+
+        .right .content ul li span.date {
+            display: block;
+            font-size: 12px;
+            color: gray;
+        }
+
+        .right .content ul li a {
+            text-decoration: none;
+            color: black;
+        }
+
+        .right .content ul li a:hover {
+            text-decoration: underline;
+        }
+
+        .right .view-all {
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        .right .view-all a {
+            text-decoration: none;
+            color: #004080;
+            font-weight: bold;
+        }
+
+        .right .view-all a:hover {
+            text-decoration: underline;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: #002e5b;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            font-size: 14px;
+            position: relative;
+        }
+
+        .footer .contact-info {
+            margin-bottom: 20px;
+        }
+
+        .footer a {
+            color: white;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .footer .social,
+        .footer .map {
+            margin-top: 20px;
+        }
+
+        .footer .social img,
+        .footer .map img {
+            max-width: 100px;
+        }
+
+        .footer .map {
+            text-align: left;
+        }
+
+        /* Sidebar Menu */
+        .menu {
+            text-align: left;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .menu ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .menu ul li {
+            margin: 10px 0;
+        }
+
+        .menu ul li a {
+            text-decoration: none;
+            color: #000;
+        }
+
+        .menu ul li a:hover {
+            color: #004080;
+        }
+
+        .menu ul li ul {
+            margin-left: 15px;
+        }
+
+        /* Form Styling */
+        .form-container {
+            background-color: #fff;
+            padding: 20px 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        .form-container h2 {
+            text-align: center;
+            color: #007bff;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 10px;
+            font-size: 14px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: #007bff;
+            box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+        }
+
+        .form-actions {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .form-actions button {
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px 15px;
+            font-size: 14px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .form-actions button:hover {
+            background-color: #0056b3;
+        }
+
+        .form-actions .reset {
+            background-color: #6c757d;
+        }
+
+        .form-actions .reset:hover {
+            background-color: #5a6268;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <img src="images/logo_trans.png" alt="University Logo"> <!-- Replace 'path-to-logo.png' with the actual logo path -->
+        <div>
+            <h1>TRƯỜNG ĐẠI HỌC XÂY DỰNG HÀ NỘI</h1>
+            <h2>TRANG THÔNG TIN TUYỂN SINH</h2>
+        </div>
+    </header>
+    
+    <nav>
+        <a href="#">Giới thiệu</a>
+        <a href="#">Tại sao chọn HUCE?</a>
+        <a href="#">Tuyển sinh Đại học</a>
+        <a href="#">Tuyển sinh sau Đại học</a>
+        <a href="#">Đào tạo quốc tế</a>
+        <a href="#">Hỗ trợ</a>
+    </nav>
+    <!-- Main Content -->
+    <div class="main">
+        <div class="left">
+            <div class="menu">
+                <ul>
+                    <li><a href="#">Lời chào mừng của Hiệu trưởng</a></li>
+                    <li><a href="#">Thông tin chung</a></li>
+                    <li><a href="#">Lịch sử phát triển</a></li>
+                    <li><a href="#">Cơ cấu tổ chức</a>
+                        <ul>
+                            <li><a href="#">Sơ đồ tổ chức</a></li>
+                            <li><a href="#">Hội đồng trường</a></li>
+                            <li><a href="#">Ban giám hiệu</a></li>
+                            <li><a href="#">Hội đồng Khoa học và Đào tạo</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">Các đơn vị</a></li>
+                    <li><a href="#">Cơ sở KHCN</a></li>
+                    <li><a href="#">Ba công khai</a></li>
+                    <li><a href="#">Xét đạt chuẩn bổ nhiệm GS và PGS</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="content">
+            <div class="form-container">
+                <h2>Đăng Ký</h2>
+                <div class="form-group">
+                    <label for="mssv">MSSV:</label>
+                    <input type="text" id="mssv" required>
+                </div>
+                <div class="form-group">
+                    <label for="name">Họ và Tên:</label>
+                    <input type="text" id="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="dob">Ngày Sinh:</label>
+                    <input type="date" id="dob" required>
+                </div>
+                <div class="form-group">
+                    <label for="gender">Giới Tính:</label>
+                    <select id="gender">
+                        <option value="Nam">Nam</option>
+                        <option value="Nữ">Nữ</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="address">Địa Chỉ:</label>
+                    <input type="text" id="address" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Số Điện Thoại:</label>
+                    <input type="text" id="phone" required>
+                </div>
+                <div class="form-group">
+                    <label for="cccd">CCCD:</label>
+                    <input type="text" id="cccd" required>
+                </div>
+                <div class="form-actions">
+                    <button onclick="register()">Đăng Ký</button>
+                    <button class="reset" onclick="resetForm()">Nhập lại</button>
+                </div>
+            </div>
+        </div>
+        <div class="right">
+            <div class="tabs">
+                <button class="active">THÔNG BÁO</button>
+                <button>SỰ KIỆN</button>
+            </div>
+            <div class="content">
+                <ul>
+                    <li>
+                        <a href="#">Thông báo về việc bổ nhiệm chức danh giáo sư, phó giáo sư năm...</a>
+                        <span class="date">06/12/2023</span>
+                    </li>
+                    <li>
+                        <a href="#">Thông báo về việc bồi dưỡng kiến thức quốc phòng và an ninh cho...</a>
+                        <span class="date">06/12/2023</span>
+                    </li>
+                    <li>
+                        <a href="#">Thông báo tổ chức bảo vệ Luận án Tiến sĩ Cấp Trường cho NCS Pha...</a>
+                        <span class="date">30/11/2023</span>
+                    </li>
+                    <li>
+                        <a href="#">Thông báo về việc xin ý kiến khen thưởng cấp cao</a>
+                        <span class="date">23/11/2023</span>
+                    </li>
+                    <li>
+                        <a href="#">Ngày hội việc làm cùng các doanh nghiệp xây dựng Nhật Bản...</a>
+                        <span class="date">21/11/2023</span>
+                    </li>
+                </ul>
+                <div class="view-all">
+                    <a href="#">XEM TẤT CẢ</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <iframe src="Nhork_Sopheakna0_5001668_footer.html" style="width: 100%; border: none;" height="800"></iframe>
+
+    <script>
+        const correctInfo = {
+            mssv: "5001668",
+            name: "NHORK SOPHEAKNA",
+            dob: "2019-01-01",
+            gender: "Nam",
+            address: "Ha Noi",
+            email: "n@example.com",
+            phone: "01234",
+            cccd: "1234"
+        };
+
+        function register() {
+            const userInfo = {
+                mssv: document.getElementById("mssv").value,
+                name: document.getElementById("name").value,
+                dob: document.getElementById("dob").value,
+                gender: document.getElementById("gender").value,
+                address: document.getElementById("address").value,
+                email: document.getElementById("email").value,
+                phone: document.getElementById("phone").value,
+                cccd: document.getElementById("cccd").value
+            };
+
+            console.log("User Info:", userInfo);
+
+            if (JSON.stringify(userInfo) === JSON.stringify(correctInfo)) {
+                alert("Đăng ký thành công!");
+            } else {
+                alert("Đăng ký không thành công do sai thông tin!");
+            }
+        }
+
+        function resetForm() {
+            document.getElementById("mssv").value = "";
+            document.getElementById("name").value = "";
+            document.getElementById("dob").value = "";
+            document.getElementById("gender").value = "Nam";
+            document.getElementById("address").value = "";
+            document.getElementById("email").value = "";
+            document.getElementById("phone").value = "";
+            document.getElementById("cccd").value = "";
+        }
+    </script>
+</body>
+</html>
